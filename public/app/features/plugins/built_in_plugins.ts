@@ -6,6 +6,8 @@ const dashboardDSPlugin = async () =>
   await import(/* webpackChunkName "dashboardDSPlugin" */ 'app/plugins/datasource/dashboard/module');
 const elasticsearchPlugin = async () =>
   await import(/* webpackChunkName: "elasticsearchPlugin" */ 'app/plugins/datasource/elasticsearch/module');
+const elasticsearch2Plugin = async () =>
+  await import(/* webpackChunkName: "elasticsearchPlugin" */ 'app/plugins/datasource/elasticsearch2/module');
 const opentsdbPlugin = async () =>
   await import(/* webpackChunkName: "opentsdbPlugin" */ 'app/plugins/datasource/opentsdb/module');
 const grafanaPlugin = async () =>
@@ -63,6 +65,7 @@ const builtInPlugins: any = {
   'app/plugins/datasource/cloudwatch/module': cloudwatchPlugin,
   'app/plugins/datasource/dashboard/module': dashboardDSPlugin,
   'app/plugins/datasource/elasticsearch/module': elasticsearchPlugin,
+  'app/plugins/datasource/elasticsearch2/module': elasticsearch2Plugin,
   'app/plugins/datasource/opentsdb/module': opentsdbPlugin,
   'app/plugins/datasource/grafana/module': grafanaPlugin,
   'app/plugins/datasource/influxdb/module': influxdbPlugin,
