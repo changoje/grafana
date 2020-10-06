@@ -42,8 +42,10 @@ export class QueryEditorRows extends PureComponent<Props> {
     panel.refresh();
   };
 
-  onChangeQuery(query: DataQuery, index: number) {
+  onChangeQuery = (query: DataQuery) => {
     const { queries, onChangeQueries } = this.props;
+
+    const index = queries.findIndex(q => q.refId === query.refId);
 
     const old = queries[index];
 
@@ -62,7 +64,7 @@ export class QueryEditorRows extends PureComponent<Props> {
         return item;
       })
     );
-  }
+  };
 
   onDragEnd = (result: DropResult) => {
     const { queries, onChangeQueries, panel } = this.props;
@@ -102,7 +104,7 @@ export class QueryEditorRows extends PureComponent<Props> {
                     dashboard={props.dashboard}
                     data={props.data}
                     query={query}
-                    onChange={query => this.onChangeQuery(query, index)}
+                    onChange={this.onChangeQuery}
                     onRemoveQuery={this.onRemoveQuery}
                     onAddQuery={this.onAddQuery}
                     inMixedMode={props.datasource.meta.mixed}
